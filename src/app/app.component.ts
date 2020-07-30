@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component ,Inject,ViewChild, AfterViewInit } from '@angular/core';
 import * as wjcCore from 'wijmo/wijmo';
 import * as wjGrid from 'wijmo/wijmo.grid';
 import * as wjcFilter from 'wijmo/wijmo.grid.filter';
