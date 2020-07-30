@@ -1,4 +1,24 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<wj-flex-grid #grid
+                [itemsSource]="gridData"           
+                [selectionMode]="'ListBox'"
+                [allowDragging]="'None'"
+                [headersVisibility]="'Column'"
+                style="height: calc(100%)">                
+                <wj-flex-grid-column [header]="'selectAll'" [binding]="'isSelected'" [allowSorting]="false" [width]="'0.4*'" [align]="'center'">
+                    <ng-template wjFlexGridCellTemplate [cellType]="'ColumnHeader'" >
+                        <input type="checkbox" [checked]="selectAll" (click)="gridSelectAllRows(selectAll)" />
+                    </ng-template>
+                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-item="item">
+                        <input type="checkbox" [(ngModel)]="item.isSelected" (mousedown)="gridSelectRow(item)"
+                        (ngModelChange)="gridChecked(item.isSelected)"> 
+                    </ng-template>
+                </wj-flex-grid-column>
+                <wj-flex-grid-column [header]="'Tool'" [binding]="'toolAlias'" [isReadOnly]="true" [width]="'1.1*'" [align]="'left'"></wj-flex-grid-column>
+                <wj-flex-grid-column [header]="'Module'" [binding]="'moduleAlias'" [isReadOnly]="true" [width]="'1.1*'" [align]="'left'"></wj-flex-grid-column>
+                <wj-flex-grid-column [header]="'Lot'" [binding]="'lotId'" [isReadOnly]="true" [width]="'1.2*'" [align]="'left'"></wj-flex-grid-column>
+                <wj-flex-grid-column [header]="'Substrate'" [binding]="'substrateId'" [isReadOnly]="true" [width]="'1.2*'" [align]="'left'"></wj-flex-grid-column>
+                <wj-flex-grid-column [header]="'Cassette Slot'" [binding]="'cassetteSlot'" [isReadOnly]="true" [width]="'0.8*'" [align]="'left'"></wj-flex-grid-column>
+                <wj-flex-grid-column [header]="'Recipe'" [binding]="'recipeId'" [isReadOnly]="true" [width]="'*'" [align]="'left'"></wj-flex-grid-column>                            
+                <wj-flex-grid-column [header]="'Start Time'" [binding]="'startDtts'" [isReadOnly]="true" [width]="'1.7*'" [align]="'center'"></wj-flex-grid-column>
+                <wj-flex-grid-column [header]="'End Time'" [binding]="'endDtts'" [isReadOnly]="true" [width]="'1.7*'" [align]="'center'"></wj-flex-grid-column>
+</wj-flex-grid> 

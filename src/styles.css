@@ -1,1 +1,9 @@
-/* Add application styles & imports to this file! */
+@import '~wijmo/styles/wijmo.css';
+
+body {
+  font-size: 14px;
+}
+
+h4 {
+  margin-top: 2rem;
+}
